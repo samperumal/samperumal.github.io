@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="refresh" content="0; url=https://datacartographer.com/loadshed/"> -->
+    <title>Welcome - Data Cartographer</title>
+
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+
+    <style>
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 0.5em;
+        }
+
+        .card {
+            height: max-content;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero is-danger">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    The Data Cartographer
+                </h1>
+                <h2 class="subtitle">
+                    <!-- "As every student of exploration knows, the prize goes not to the explorer who first sets foot upon the virgin soil but to the one who gets that foot home first." - Sir Pratchett -->
+                    I draw pictures to make sense of data
+                </h2>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="is-16by9">
+                        <a href="https://datacartographer.com/alice-js/">
+                            <img src="img/trd_event_display.png" alt="Placeholder image"></a>
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-32x32">
+                                <img src="img/cern.jpg" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">TRD Event Display</p>
+                        </div>
+                    </div>
+                    An event display for data from the TRD detector at the ALICE experiment at CERN.
+                    <br />
+                    <!-- <a href="https://datacartographer.com/alice-js/">https://datacartographer.com/alice-js/</a> -->
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-image">
+                    <figure class="is-16by9">
+                        <a href="https://datacartographer.com/loadshed/">
+                            <img src="img/load-shed.png" alt="Placeholder image"></a>
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-content">
+                            <p class="title is-4">Load Shedding Schedule</p>
+                        </div>
+                    </div>
+                    An interactive view of the load shedding schedule published by the City of Cape Town.
+                    <br />
+                    <!-- <a href="https://datacartographer.com/loadshed/">https://datacartographer.com/loadshed/</a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
