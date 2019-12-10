@@ -11,95 +11,94 @@
 
     <link rel="stylesheet" href="css/bulma.min.css">
     <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
-
-    <style>
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            grid-gap: 3em;
-        }
-
-        .card {
-            height: max-content;
-        }
-    </style>
 </head>
 
 <body>
-    <section class="hero is-danger">
+    <section class="hero is-danger is-small is-bold">
         <div class="hero-body">
-            <div class="container">
+            <div class="container has-text-centered">
                 <h1 class="title">
                     The Data Cartographer
                 </h1>
-                <h2 class="subtitle">
-                    <!-- "As every student of exploration knows, the prize goes not to the explorer who first sets foot upon the virgin soil but to the one who gets that foot home first." - Sir Pratchett -->
-                    I draw pictures to make sense of data
-                </h2>
+                <div class="subtitle">
+                    I draw pictures to understand data. This is some of my work.
+                </div>
             </div>
         </div>
     </section>
     <section class="section">
         <div class="container">
-            <div class="card">
-                <div class="card-image">
-                    <figure class="is-16by9">
-                        <a href="https://datacartographer.com/alice-js/">
-                            <img src="img/trd_event_display.png" alt="Placeholder image"></a>
-                    </figure>
-                </div>
-                <div class="card-content">                    
-                    <div class="title is-4 has-text-centered">TRD Event Display</div>
-                    <div class="content">
-                        An event display for data from the TRD detector at the ALICE experiment at CERN.
-                    </div>
-                </div>
+            <div class="columns is-multiline">
+                <div class="column is-6-tablet is-3-desktop">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="is-16by9">
+                                <a href="https://datacartographer.com/alice-js/">
+                                    <img src="img/trd_event_display.png" alt="Placeholder image"></a>
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="title is-4 has-text-centered">TRD Event Display</div>
+                            <div class="content">
+                                An event display for data from the TRD detector in the <a
+                                    href="http://alice.web.cern.ch">ALICE</a> experiment at <a
+                                    href="http://home.cern">CERN</a>.
+                            </div>
+                        </div>
 
-            </div>
-            <div class="card">
-                <div class="card-image">
-                    <figure class="is-16by9">
-                        <a href="https://datacartographer.com/loadshed/">
-                            <img src="img/load-shed.png" alt="Placeholder image"></a>
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="title is-4 has-text-centered">Load Shedding Schedule</div>
-                    <div class="content">
-                        An interactive view of the load shedding schedule published by the City of Cape Town.
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-image">
-                    <figure class="is-16by9">
-                        <a href="https://lookingforboardgame.z19.web.core.windows.net/">
-                            <img src="img/looking-for-boardgames.png" alt="Placeholder image"></a>
-                    </figure>
-                </div>
-                <div class="card-content">
-                    <div class="title is-4 has-text-centered">Looking For Boardgames</div>
-                    <div class="content">
-                        An interface to find a boardgame to play, based on the top 100 boardgames on <a
-                            href="https://boardgamegeek.com">Board Game Geek</a>.
+                <div class="column is-6-tablet is-3-desktop">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="is-16by9">
+                                <a href="https://datacartographer.com/loadshed/">
+                                    <img src="img/load-shed.png" alt="Placeholder image"></a>
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="title is-4 has-text-centered">Load Shedding Schedule</div>
+                            <div class="content">
+                                An interactive view of the load shedding schedule published by the City of Cape Town.
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-image">
-                    <figure class="is-16by9">
-                        <a href="https://datacartographer.com/oils/">
-                            <img src="img/oils.png" alt="Placeholder image"></a>
-                    </figure>
+                <div class="column is-6-tablet is-3-desktop">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="is-16by9">
+                                <a href="https://lookingforboardgame.z19.web.core.windows.net/">
+                                    <img src="img/looking-for-boardgames.png" alt="Placeholder image"></a>
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="title is-4 has-text-centered">Looking For Boardgames</div>
+                            <div class="content">
+                                An interface to find a boardgame to play, based on the top 100 boardgames on <a
+                                    href="https://boardgamegeek.com">Board Game Geek</a>.
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <div class="title is-4 has-text-centered">Healthy Oils</div>
-                    <div class="content">
-                        A visualisation of healthy oil choices, using data from
-                        <a
-                            href="https://docs.google.com/spreadsheets/d/1TCpmlGXaLh4Pi-fzAAvpCDWlsNagGpVBLfG4ekEPtCs/edit">
-                            Information is Beautiful
-                        </a>.
+                <div class="column is-6-tablet is-3-desktop">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="is-16by9">
+                                <a href="https://datacartographer.com/oils/">
+                                    <img src="img/oils.png" alt="Placeholder image"></a>
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="title is-4 has-text-centered">Healthy Oils</div>
+                            <div class="content">
+                                A visualisation of healthy oil choices, using data from
+                                <a
+                                    href="https://docs.google.com/spreadsheets/d/1TCpmlGXaLh4Pi-fzAAvpCDWlsNagGpVBLfG4ekEPtCs/edit">
+                                    Information is Beautiful
+                                </a>.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
