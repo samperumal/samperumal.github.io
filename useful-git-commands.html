@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Useful git commands</title>
+</head>
+<body>
+    <div>
+        <div>Compare just file status changes between any two branches</div>
+        <pre>git diff --name-status firstBranch..secondBranch</pre>
+        
+    </div>
+    <div>
+        <div>Pickup upstream changes, but ignore local changes. useful for having templates checked in that you then modify locally (e.g. example local dev application settings) but don't want to check back in.</div>
+        <pre>git update-index --skip-worktree</pre>
+    </div>
+    <div>
+        <div>Speed up Git's behavior by ignoring unnecessary files that should never be changed locally. Useful in very large projects.</div>
+        <pre>git update-index --assume-unchanged</pre>
+    </div>
+    
+</body>
+</html>
