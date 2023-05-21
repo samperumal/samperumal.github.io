@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="I draw pictures to make sense of data" />
+  <meta property="og:title" content="The Data Cartographer">
+  <meta property="og:description" content="I draw pictures to make sense of data.">
+  <meta property="og:image" content="https://datacartographer.com/img/load-shed.png">
+  <meta property="og:url" content="https://datacartographer.com/">
+  <title>SARS Tax Calculator</title>
+</head>
+
+<body>
+  <script type="javascript">
+    const response = await fetch("tax/tax-data.json");
+    const jsonData = await response.json();
+  </script>
+</body>
+</html>
