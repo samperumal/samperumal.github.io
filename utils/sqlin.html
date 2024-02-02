@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="I draw pictures to make sense of data" />
+  <meta property="og:title" content="The Data Cartographer">
+  <meta property="og:description" content="I draw pictures to make sense of data.">
+  <meta property="og:image" content="https://datacartographer.com/img/load-shed.png">
+  <meta property="og:url" content="https://datacartographer.com/">
+  <title>The Data Cartographer</title>
+
+  <link rel="stylesheet" href="../css/bulma.min.css">
+
+  <style>
+    .card {
+      height: 100%;
+    }
+
+    a div {
+      color: black;
+    }
+
+    div.card-links {
+      padding-top: 0;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    img {
+      padding: 1em;
+    }
+    
+    .footer {
+      background-color: inherit;
+    }
+
+    textarea {
+      width: 100%;
+      
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero is-danger is-small is-bold" style="background-image: linear-gradient(141deg,#111d4d 0,#4649f1 71%,#111d4d 100%);">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          <a href="/">The Data Cartographer</a>
+        </h1>
+        <div class="subtitle">
+          <a href="/utils">Utilities</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="title is-4 has-text-centered">List to SQL 'IN' conditional</div>
+      <div class="columns">
+        <div class="column">
+          <textarea id="sqlInput" rows="12"></textarea>
+        </div>
+        <div class="column has-text-centered">
+          <div class="content"><button onclick="convertListToSql()">-> Convert -></button></div>
+          <div class="content"><input id="sqlAlwaysEscape" type="checkbox" checked="checked" /><label for="sqlAlwaysEscape" style="margin-left: 1rem">Always escape values</label></div>
+          <div class="content"><input id="sqlTrimInput" type="checkbox" checked="checked" /><label for="sqlTrimInput" style="margin-left: 1rem">Trim each line</label></div>
+          <div class="content"><input id="sqlIsTable" type="checkbox" checked="checked" onchange="sqlIsTableChanged()" /><label for="sqlIsTable" style="margin-left: 1rem">Process as table</label></div>
+          <div class="content" id="sqlColumnSeparatorContainer">
+            <label for="sqlColumnSeparator" style="margin-right: 0.25rem">Separate columns with: </label>
+            <select id="sqlColumnSeparator">
+              <option value="," selected="selected">Comma</option>
+              <option value="&#9;">Tab</option>
+              <option value=" ">Space</option>
+            </select>
+          </div>
+        </div>
+        <div class="column">
+          <textarea id="sqlOutput" rows="12"></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p class="has-text-grey">
+        © 2024 Metaplex. All Rights Reserved. Contact: <a class="has-text-link"
+          href="mailto:info@datacartographer.com">info@datacartographer.com</a>
+      </p>
+    </div>
+  </footer>
+</body>
+<script>
+  function convertListToSql()
+  {
+    var input = document.getElementById("sqlInput").value
+    var result = ""
+    var first = true
+    var alwaysCheck = document.getElementById("sqlAlwaysEscape").checked
+    var isTable = document.getElementById("sqlIsTable").checked
+    var trimInput = document.getElementById("sqlTrimInput").checked
+    var columnSeparator = document.getElementById("sqlColumnSeparator").value
+    
+    if (!isTable) result = "("
+    
+    for (var line of input.split("\n"))
+    {
+      if (trimInput) {
+        line = line.trim()
+        if (line === "") continue
+      }
+
+      if (first)
+        first = false
+      else if (isTable)
+        result += ",\n"
+      else 
+        result += ","
+      
+      if (isTable)
+      {
+        result += "("
+        var firstItem = true
+        for (var item of line.split(columnSeparator))
+        {
+          if (firstItem)
+            firstItem = false
+          else
+            result += ","
+          
+          result += escape(item, alwaysCheck)
+        }
+        result += ")"
+      }
+      else
+        result += escape(line, alwaysCheck)
+    }
+    
+    if (!isTable) result += ")"
+
+    document.getElementById("sqlOutput").value = result
+  }
+
+  function escape(input, alwaysCheck)
+  {
+    if (alwaysCheck || isNaN(input))
+      return "'" + input.toString().trim() + "'";
+    else return input;
+  }
+
+  function sqlIsTableChanged()
+  {
+    var isTable = document.getElementById("sqlIsTable").checked
+    document.getElementById("sqlColumnSeparatorContainer").style.visibility = isTable ? "inherit" : "hidden"
+  }
+</script>
+
+</html>

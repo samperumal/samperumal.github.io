@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="I draw pictures to make sense of data" />
+  <meta property="og:title" content="The Data Cartographer">
+  <meta property="og:description" content="I draw pictures to make sense of data.">
+  <meta property="og:image" content="https://datacartographer.com/img/load-shed.png">
+  <meta property="og:url" content="https://datacartographer.com/">
+  <title>The Data Cartographer</title>
+
+  <link rel="stylesheet" href="../css/bulma.min.css">
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
+
+  <style>
+    .card {
+      height: 100%;
+    }
+
+    a div {
+      color: black;
+    }
+
+    div.card-links {
+      padding-top: 0;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    img {
+      padding: 1em;
+    }
+
+    div.card {
+      transition: all .2s ease-in-out;
+    }
+
+    div.card:hover {
+      transform: scale(1.1);
+      background-color: hsl(7, 100%, 98%);
+    }
+
+    div.card-image {
+      height: 175px;
+    }
+
+    .footer {
+      background-color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero is-danger is-small is-bold"
+    style="background-image: linear-gradient(141deg,#111d4d 0,#4649f1 71%,#111d4d 100%);">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          <a href="/">The Data Cartographer</a>
+        </h1>
+        <div class="subtitle">
+          Useful data analysis and programming utilities
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-multiline">
+        <div class="column is-6-tablet is-3-desktop">
+          <a href="sqlin.html">
+            <div class="card">
+              <div class="card-image">
+                <figure class="is-16by9">
+                  <img src="../img/utils.png" alt="Placeholder image">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="title is-4 has-text-centered">SQL IN Convertor</div>
+                <div class="content">
+                  Convert lists or tables into a SQL IN conditional or VALUES array
+                </div>
+              </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p class="has-text-grey">
+        © 2024 Metaplex. All Rights Reserved. Contact: <a class="has-text-link"
+          href="mailto:info@datacartographer.com">info@datacartographer.com</a>
+      </p>
+    </div>
+  </footer>
+</body>
+
+</html>
