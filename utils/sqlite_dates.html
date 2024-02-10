@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="I draw pictures to make sense of data" />
+  <meta property="og:title" content="The Data Cartographer">
+  <meta property="og:description" content="I draw pictures to make sense of data.">
+  <meta property="og:image" content="https://datacartographer.com/img/load-shed.png">
+  <meta property="og:url" content="https://datacartographer.com/">
+  <title>The Data Cartographer</title>
+
+  <link rel="stylesheet" href="../css/bulma.min.css">
+
+  <style>
+    .card {
+      height: 100%;
+    }
+
+    a div {
+      color: black;
+    }
+
+    div.card-links {
+      padding-top: 0;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    img {
+      padding: 1em;
+    }
+    
+    .footer {
+      background-color: inherit;
+    }
+
+    textarea {
+      width: 100%;
+      
+      padding: 12px 20px;
+      box-sizing: border-box;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      background-color: #f8f8f8;
+      font-size: 16px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero is-danger is-small is-bold" style="background-image: linear-gradient(141deg,#111d4d 0,#4649f1 71%,#111d4d 100%);">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">
+          <a href="/">The Data Cartographer</a>
+        </h1>
+        <div class="subtitle">
+          <a href="/utils">Utilities</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="title is-4 has-text-centered">Convert date column to ISO</div>
+      <div class="columns">
+        <div class="column">
+          <textarea id="sqlInput" rows="12" spellcheck="false"></textarea>
+        </div>
+        <div class="column has-text-centered">
+          <div class="content"><button onclick="convertListToSql()">-> Convert -></button></div>
+          <div class="content" id="sqlColumnSeparatorContainer">
+            <label for="dateType" style="margin-right: 0.25rem">Column date format: </label>
+            <select id="dateType">
+              <option value="dd/MM/yyyy" selected="selected">dd/MM/yyyy</option>
+              <option value="MM/dd/yyyy">MM/dd/yyyy</option>
+              <option value="yyyy/MM/dd">yyyy/MM/dd</option>
+            </select>
+          </div>
+        </div>
+        <div class="column">
+          <textarea id="sqlOutput" rows="12" spellcheck="false"></textarea>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p class="has-text-grey">
+        © 2024 Metaplex. All Rights Reserved. Contact: <a class="has-text-link"
+          href="mailto:info@datacartographer.com">info@datacartographer.com</a>
+      </p>
+    </div>
+  </footer>
+</body>
+<script>
+  function convertListToSql()
+  {
+    var input = document.getElementById("sqlInput").value
+    var dateType = document.getElementById("dateType").value
+
+    switch (dateType)
+    {
+      case "dd/MM/yyyy": 
+        result = `date(substr(${input}, 7) || '-' || substr(${input}, 4, 2) || '-' || substr(${input}, 1, 2)) AS ${input}`
+        break
+
+      case "MM/dd/yyyy": 
+        result = `date(substr(${input}, 7) || '-' || substr(${input}, 1, 2) || '-' || substr(${input}, 4, 2)) AS ${input}`
+        break
+
+      case "yyyy/MM/dd": 
+        result = `date(substr(${input}, 1, 4) || '-' || substr(${input}, 6, 2) || '-' || substr(${input}, 9)) AS ${input}`
+        break
+    }
+    
+    document.getElementById("sqlOutput").value = result
+  }
+
+  function escape(input, alwaysCheck)
+  {
+    if (alwaysCheck || isNaN(input))
+      return "'" + input.toString().trim() + "'";
+    else return input;
+  }
+
+  function sqlIsTableChanged()
+  {
+    var isTable = document.getElementById("sqlIsTable").checked
+    document.getElementById("sqlColumnSeparatorContainer").style.visibility = isTable ? "inherit" : "hidden"
+  }
+</script>
+
+</html>
